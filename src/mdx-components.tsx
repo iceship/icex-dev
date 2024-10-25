@@ -1,6 +1,7 @@
+import { ComponentPropsWithoutRef } from "react";
+
 import type { MDXComponents } from "mdx/types";
 import { Link } from "next-view-transitions";
-import { ComponentPropsWithoutRef } from "react";
 import { highlight } from "sugar-high";
 
 type HeadingProps = ComponentPropsWithoutRef<"h1">;
@@ -12,13 +13,13 @@ type BlockquoteProps = ComponentPropsWithoutRef<"blockquote">;
 
 const components: MDXComponents = {
   h1: (props: HeadingProps) => (
-    <h1 className="fade-in mb-0 pt-12 font-medium" {...props} />
+    <h1 className="mb-0 pt-12 font-medium fade-in" {...props} />
   ),
   h2: (props: HeadingProps) => (
-    <h2 className="mt-8 mb-3 font-medium text-gray-800" {...props} />
+    <h2 className="mb-3 mt-8 font-medium text-gray-800" {...props} />
   ),
   h3: (props: HeadingProps) => (
-    <h3 className="mt-8 mb-3 font-medium text-gray-800" {...props} />
+    <h3 className="mb-3 mt-8 font-medium text-gray-800" {...props} />
   ),
   h4: (props: HeadingProps) => <h4 className="font-medium" {...props} />,
   p: (props: ParagraphProps) => (
@@ -91,14 +92,14 @@ const components: MDXComponents = {
   ),
   blockquote: (props: BlockquoteProps) => (
     <blockquote
-      className="ml-[0.075em] border-l-3 border-gray-300 pl-4 text-gray-700"
+      className="border-l-3 ml-[0.075em] border-gray-300 pl-4 text-gray-700"
       {...props}
     />
   ),
 };
 
 export function useMDXComponents(
-  otherComponents: MDXComponents,
+  otherComponents: MDXComponents
 ): MDXComponents {
   return {
     ...otherComponents,

@@ -1,23 +1,15 @@
+import "@/styles/globals.css";
+import { Metadata, Viewport } from "next";
+
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { ViewTransitions } from "next-view-transitions";
+
 import { ThemeProvider } from "@/components/providers";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { siteConfig } from "@/config/site";
-import "@/styles/globals.css";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import type { Metadata } from "next";
-import { ViewTransitions } from "next-view-transitions";
-import localFont from "next/font/local";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import { fontSans } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: {
@@ -58,6 +50,13 @@ export const metadata: Metadata = {
   manifest: `${siteConfig.url}/site.webmanifest`,
 };
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -67,7 +66,10 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="en" suppressHydrationWarning>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} tracking-tight antialiased`}
+          className={cn(
+            "min-h-screen bg-background font-sans antialiased",
+            fontSans.variable
+          )}
         >
           <ThemeProvider
             attribute="class"
@@ -76,7 +78,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <div vaul-drawer-wrapper="">
-              <div className="relative flex min-h-screen flex-col justify-between bg-background bg-white p-8 pt-0 text-gray-900 md:pt-8">
+              <div className="relative flex min-h-screen flex-col bg-background">
                 {children}
               </div>
             </div>
