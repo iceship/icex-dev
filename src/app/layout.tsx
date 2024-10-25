@@ -1,9 +1,12 @@
+import { ThemeProvider } from "@/components/providers";
+import { TailwindIndicator } from "@/components/tailwind-indicator";
+import { siteConfig } from "@/config/site";
+import "@/styles/globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { ViewTransitions } from "next-view-transitions";
 import localFont from "next/font/local";
-import "./globals.css";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -17,15 +20,42 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://icex.dev"),
-  alternates: {
-    canonical: "/",
-  },
   title: {
-    default: "icex.dev",
-    template: "%s | icex.dev",
+    default: siteConfig.name,
+    template: `%s - ${siteConfig.name}`,
   },
-  description: "developer",
+  metadataBase: new URL(siteConfig.url),
+  description: siteConfig.description,
+  keywords: ["Next.js", "React", "Tailwind CSS", "Iceship"],
+  authors: [
+    {
+      name: "iceship",
+      url: "https://icex.dev",
+    },
+  ],
+  creator: "iceship",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1024,
+        height: 1024,
+        alt: siteConfig.name,
+      },
+    ],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: `${siteConfig.url}/site.webmanifest`,
 };
 
 export default function RootLayout({
@@ -35,42 +65,27 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body
           className={`${geistSans.variable} ${geistMono.variable} tracking-tight antialiased`}
         >
-          <div className="flex min-h-screen flex-col justify-between bg-white p-8 pt-0 text-gray-900 md:pt-8">
-            <main className="mx-auto w-full max-w-[60ch] space-y-6">
-              {children}
-            </main>
-            <Footer />
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <div vaul-drawer-wrapper="">
+              <div className="relative flex min-h-screen flex-col justify-between bg-background bg-white p-8 pt-0 text-gray-900 md:pt-8">
+                {children}
+              </div>
+            </div>
             <Analytics />
             <SpeedInsights />
-          </div>
+            <TailwindIndicator />
+          </ThemeProvider>
         </body>
       </html>
     </ViewTransitions>
-  );
-}
-
-function Footer() {
-  const links = [{ name: "github", url: "https://github.com/iceship" }];
-
-  return (
-    <footer className="mt-12 text-center">
-      <div className="flex justify-center space-x-4 tracking-tight">
-        {links.map((link) => (
-          <a
-            key={link.name}
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 transition-colors duration-200 hover:text-blue-500"
-          >
-            {link.name}
-          </a>
-        ))}
-      </div>
-    </footer>
   );
 }
