@@ -13,7 +13,7 @@ export const Icons = {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="32"
+        strokeWidth="24"
       />
       <line
         x1="136"
@@ -24,7 +24,7 @@ export const Icons = {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="32"
+        strokeWidth="24"
       />
       <line
         x1="216"
@@ -35,7 +35,50 @@ export const Icons = {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="32"
+        strokeWidth="24"
+      />
+    </svg>
+  ),
+  mobile: () => (
+    <svg
+      strokeWidth="1.5"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-5 w-5"
+    >
+      <line
+        x1="8"
+        y1="4.5"
+        x2="8"
+        y2="20.5"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+      />
+      <line
+        x1="12"
+        y1="4.5"
+        x2="20"
+        y2="20.5"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+      />
+      <line
+        x1="20"
+        y1="4.5"
+        x2="12"
+        y2="20.5"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
       />
     </svg>
   ),
