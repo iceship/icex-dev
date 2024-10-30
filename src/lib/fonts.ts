@@ -1,16 +1,27 @@
-// import { JetBrains_Mono as FontMono, Inter as FontSans } from "next/font/google"
-import { JetBrains_Mono as FontMono } from "next/font/google";
+import { Noto_Sans_KR, Roboto_Mono } from "next/font/google";
 
-// import { GeistMono } from "geist/font/mono"
-import { GeistSans } from "geist/font/sans";
+//import { GeistSans } from "geist/font/sans";
 
-// export const fontSans = FontSans({
-//   subsets: ["latin"],
+// export const fontSans = IBM_Plex_Sans_KR({
+//   subsets: ["latin", "latin-ext"],
+//   weight: ["400", "500", "600", "700"],
 //   variable: "--font-sans",
-// })
-export const fontSans = GeistSans;
+// });
 
-export const fontMono = FontMono({
+// export const fontSans = Inter({
+//   subsets: ["latin"],
+//   display: "swap",
+//   variable: "--font-sans",
+// });
+
+export const fontSans = Noto_Sans_KR({
   subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sans",
+});
+
+export const fontMono = Roboto_Mono({
+  subsets: ["latin"],
+  display: "swap",
   variable: "--font-mono",
 });

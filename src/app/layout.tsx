@@ -7,7 +7,7 @@ import { ViewTransitions } from "next-view-transitions";
 import { ThemeProvider } from "@/components/providers";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { siteConfig } from "@/config/site";
-import { fontSans } from "@/lib/fonts";
+import { fontMono, fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   creator: "iceship",
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "ko_KR",
     url: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
@@ -64,11 +64,12 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-      <html lang="en" suppressHydrationWarning>
+      <html lang="ko" suppressHydrationWarning>
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
-            fontSans.variable
+            fontSans.variable,
+            fontMono.variable
           )}
         >
           <ThemeProvider

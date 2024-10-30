@@ -11,16 +11,12 @@ export function MainNav() {
   const pathname = usePathname();
 
   return (
-    <div className="mr-4 hidden md:flex">
-      <Link href="/" className="mr-4 flex items-center space-x-2 lg:mr-6">
-        <span className="hidden h-6 w-6 font-bold fade-in md:inline-block">
-          👻
-        </span>
-        <span className="hidden font-bold md:inline-block">
-          {siteConfig.name}
-        </span>
+    <div className="mr-4 flex">
+      <Link href="/" className="mr-4 flex items-center space-x-2">
+        <span className="h-6 w-6 font-bold">👻</span>
+        <span className="font-bold">{siteConfig.name}</span>
       </Link>
-      <nav className="flex items-center gap-4 text-sm lg:gap-6">
+      <nav className="flex items-center gap-4 text-sm">
         <Link
           href="/blog"
           className={cn(
@@ -40,6 +36,15 @@ export function MainNav() {
           )}
         >
           Proxmox
+        </Link>
+        <Link
+          href="/about"
+          className={cn(
+            "transition-colors hover:text-foreground/80",
+            pathname === "/about" ? "text-foreground" : "text-foreground/60"
+          )}
+        >
+          개발자 소개
         </Link>
       </nav>
     </div>
