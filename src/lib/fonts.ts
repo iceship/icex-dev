@@ -1,4 +1,4 @@
-import { Noto_Sans_KR, Roboto_Mono } from "next/font/google";
+import { Inter, Roboto_Mono } from "next/font/google";
 
 //import { GeistSans } from "geist/font/sans";
 
@@ -8,17 +8,17 @@ import { Noto_Sans_KR, Roboto_Mono } from "next/font/google";
 //   variable: "--font-sans",
 // });
 
-// export const fontSans = Inter({
-//   subsets: ["latin"],
-//   display: "swap",
-//   variable: "--font-sans",
-// });
-
-export const fontSans = Noto_Sans_KR({
+export const fontSans = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-sans",
 });
+
+// export const fontSans = Noto_Sans_KR({
+//   subsets: ["latin"],
+//   display: "swap",
+//   variable: "--font-sans",
+// });
 
 export const fontMono = Roboto_Mono({
   subsets: ["latin"],

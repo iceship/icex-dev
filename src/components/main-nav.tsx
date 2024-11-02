@@ -16,7 +16,7 @@ export function MainNav() {
         <span className="h-6 w-6 font-bold">👻</span>
         <span className="font-bold">{siteConfig.name}</span>
       </Link>
-      <nav className="flex items-center gap-4 text-sm">
+      <nav className="hidden items-center gap-4 text-sm md:flex">
         <Link
           href="/blog"
           className={cn(
@@ -38,10 +38,12 @@ export function MainNav() {
           Proxmox
         </Link>
         <Link
-          href="/about"
+          href="/blog/about"
           className={cn(
             "transition-colors hover:text-foreground/80",
-            pathname === "/about" ? "text-foreground" : "text-foreground/60"
+            pathname === "/blog/about"
+              ? "text-foreground"
+              : "text-foreground/60"
           )}
         >
           개발자 소개

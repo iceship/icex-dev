@@ -5,6 +5,7 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 import { Icons } from "./icons";
+import { MobileNav } from "./mobile-nav";
 import { ModeToggle } from "./mode-toggle";
 import { buttonVariants } from "./ui/button";
 
@@ -34,6 +35,7 @@ export function SiteHeader() {
               </div>
             </Link>
             <ModeToggle />
+            <MobileNav />
           </nav>
         </div>
       </div>
